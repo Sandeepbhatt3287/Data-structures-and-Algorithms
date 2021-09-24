@@ -2,25 +2,28 @@
 using namespace std;
 
 
-int main(int argc, char** agrc){
+int main(int argc, char** agrc)
+{
 
-string str;
-getline(cin,str);
+    string str;
+    getline(cin,str);
 
 
-int li=0,ri=str.length();
+     int li=0,ri=str.length();
 
-int Palindrom(string &ss)
-{  while (li<ri)
+
+bool isPal( string &ss)
+ { 
+     while (li<ri)
    {
-    if (str[li]!=str[ri])
-     return 0;
-
+    if (ss[li]!=ss[ri])
+     return false;
      li++;
      ri--;
-  }
-  return 1;
-}
+    }
+  return true;
+};
+
 
 
 for (int i =0;i<ri;i++)
@@ -28,7 +31,9 @@ for (int i =0;i<ri;i++)
      {
         string ss = str.substr(i,j);
            // string str1 = str[i];
-       if (Palindrom(ss)==1)
+
+
+       if (isPal(ss)==true)
           {
               cout<<ss<<endl;
           }
@@ -36,4 +41,4 @@ for (int i =0;i<ri;i++)
      }
    }
    
- }
+}
