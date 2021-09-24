@@ -4,7 +4,7 @@ int main(int argc, char** agrc){
 
  //write your code here
     int n1,n2;
-     cin>>n1;
+     cin>>n1;     //taking input from user for first array
     
     int a[n1];
     
@@ -12,7 +12,7 @@ int main(int argc, char** agrc){
     {
         cin>>a[i];
     }
-    cin>>n2;
+    cin>>n2;             //taking input from user for first array
     int b[n2];
     
     for (int i=0; i<n2;i++)
@@ -20,7 +20,11 @@ int main(int argc, char** agrc){
         cin>>b[i];
     }
     
+
+    // calculating size of sum array
+
     int sum[n1>n2?n1:n2];
+
     int c=0;
     
     int i = sizeof(a) / sizeof(a[0]) - 1;
@@ -52,7 +56,4 @@ int main(int argc, char** agrc){
     {
         cout<<val<<endl;
     }
-    
-
- 
-    } 
+} 
