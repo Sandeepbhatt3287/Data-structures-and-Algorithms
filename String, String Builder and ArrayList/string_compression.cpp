@@ -4,29 +4,29 @@ using namespace std;
 
 
 
-
-void duplicates(string str)
-{
+string duplicates(string str)
+{ string s1=str;
   int  index = 0;
      for (int i=0; i <str.length();i++)
          {
              int j ;
              for(j=0;j<i;j++)
-           if (str[i]==str[j] )
+           if (s1[i]==s1[j] )    
            { break; }
      if (j==i)
-     str[index++]=str[i];
+     s1[index++]=s1[i];
+ 
          }  
-
- str;
+  return s1;
 }
 
 
-int main(int argc, char** agrc)
+int main( )
 {
 
     string str;
     getline(cin,str);
-    duplicates(str);
+    cout<<duplicates(str);
+    
 
 }
