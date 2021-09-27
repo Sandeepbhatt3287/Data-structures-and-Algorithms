@@ -16,9 +16,9 @@ int main ()
 
      for (int j =0;j<n;j++)
      {
-         for (int div=2;div*div=a[j];div++)
+         for (int div=2;div*div<=a[j];div++)
          {
-             if (div%a[j]==0)
+             if (a[j]%div==0)
              {
                  cout<<a[j];
              }
