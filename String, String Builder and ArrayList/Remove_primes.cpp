@@ -14,15 +14,20 @@ int main ()
         cin>>a[i];
     }
 
+cout<<"[";
      for (int j =0;j<n;j++)
-     {
+     { int c=0;
          for (int div=2;div*div<=a[j];div++)
          {
              if (a[j]%div==0)
              {
-                 cout<<a[j];
+                 c=1; break;
              }
          }
+     
+      if (c==1)
+      cout<<a[j]<<",";
      }
 
+ cout<<"]";
 }
