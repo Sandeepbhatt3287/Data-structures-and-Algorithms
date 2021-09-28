@@ -16,7 +16,7 @@ int main(){
   int n;
   cin>>n;
   Dec(n);
-  
-  return 0;
+ 
+ return 0;
 
 }
