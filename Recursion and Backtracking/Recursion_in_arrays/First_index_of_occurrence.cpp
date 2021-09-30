@@ -6,10 +6,10 @@ int firstIndex(int arr[], int idx, int x, int n){
     if (idx==n-1)
     return -1;
     
-    
     if (x==arr[idx])
-    return idx;
+    {return idx;}
     firstIndex( arr, idx+1,x,n);
+    
 }
 
 int main()
