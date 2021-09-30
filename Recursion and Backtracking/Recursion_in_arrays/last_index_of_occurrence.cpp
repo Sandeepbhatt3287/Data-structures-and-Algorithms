@@ -11,7 +11,7 @@
         // cout<<arr[idx]<<endl;
         if (arr[idx]==x)
         {
-            cout<<idx<<endl; 
+            cout<<idx<<endl; //
             break;
         }
     }
