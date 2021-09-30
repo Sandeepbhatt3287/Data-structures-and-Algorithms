@@ -6,7 +6,7 @@ void display(int arr[], int idx, int n){
     if (idx==n)
     return;
     
-    cout<<arr[n-1]<<endl;  //starting fro the end
+    // cout<<arr[n-1]<<endl;  //starting fro the end
     display(arr,idx,n-1);
     
 }
