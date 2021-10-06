@@ -53,9 +53,21 @@ vector<int> mergeTwoSortedArrays(vector<int> &A, vector<int> &B)
     return ans;
 }
 
-vector<int> mergeSort(vector<int> &arr)
+vector<int> mergeSort(vector<int> &arr,int low, int high)
 {
+    if (high==low)
+    {
+        vector<int> base_arr;
+        base_arr.push_back(arr[low]);
+        return base_arr;
+    }
     
+    int mid =(low+high)/2;
+    vector<int> arr1=mergeSort(arr,low,mid);
+    vector<int> arr2=mergeSort(arr,mid+1,high);
+    vector<int> res=mergeTwoSortedArrays(arr1,arr2);
+
+    return res;
 }
 
 int main()
@@ -65,7 +77,7 @@ int main()
     vector<int> A(n, 0);
     input(A);
 
-    vector<int> ans = mergeSort(A);
+    vector<int> ans = mergeSort(A,0,n-1);
     cout << "Sorted Array -> ";
     print(ans);
     return 0;
