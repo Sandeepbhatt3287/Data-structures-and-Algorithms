@@ -1,20 +1,21 @@
 #include<iostream>
-using namespace std
+using namespace std;
 
 void insertion(int arr[],int n)
 
 {
   for (int i=1;i<n;i++)
    {
-    for(in j =i;j<i;j--)
+    for(int j =i-1;j>=0;j--)
     {
-        if(arr[j]<arr[j-1])
+        if(arr[j]>arr[j+1])
         {
-            int temp =arr[j-1];
-            arr[j-1]=arr[j];
-            arr[j]=temp;
-            break;
-        }
+            int temp =arr[j];
+            arr[j]=arr[j+1];
+            arr[j+1]=temp;
+        
+        }else
+        break;
     } 
    }
 
