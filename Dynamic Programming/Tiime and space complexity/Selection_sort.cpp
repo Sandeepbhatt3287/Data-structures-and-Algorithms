@@ -9,24 +9,25 @@ void Selection(int arr[], int n){
             int min=i;
                 for (int j =i+1;j<n;j++)
                 {   
-                        cout<<"Comparing "<<arr[j+1]<<" and "<<arr[j]<<endl;
+                        cout<<"Comparing "<<arr[j]<<" and "<<arr[i]<<endl;
                         if (arr[j]<arr[min])
                         { 
                           min=j;
                             // min=arr[j+1];
                         }
                 }
-                swap(arr,i,min);
-                 
+                // swap(arr,i,min);
+                cout<<"Swapping "<<arr[i]<<" and "<<arr[min]<<endl;
+                        int temp=arr[i];
+                            arr[i]=arr[min];
+                            arr[min]=temp;
         }
 }
-void  swap(int arr[],int i, nt j)
-{
-  cout<<"Swapping "<<arr[j+1]<<" and "<<arr[j]<<endl;
-                            int temp=arr[j+1];
-                            arr[j+1]=arr[j];
-                            arr[j]=temp;
-}
+// void  swap(int arr[],int i, int j)
+// {
+  
+                            
+// }
 
 int main()
 {
