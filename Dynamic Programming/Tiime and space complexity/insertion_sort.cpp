@@ -8,8 +8,11 @@ void insertion(int arr[],int n)
    {
     for(int j =i-1;j>=0;j--)
     {
+
+        cout<<"Comparing "<<arr[j+1]<<" and "<<arr[j]<<endl;
         if(arr[j]>arr[j+1])
-        {
+        {    
+            cout<<"Swapping "<<arr[j]<<" and "<<arr[j+1]<<endl;
             int temp =arr[j];
             arr[j]=arr[j+1];
             arr[j+1]=temp;
