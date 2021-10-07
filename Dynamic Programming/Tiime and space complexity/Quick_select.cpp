@@ -32,21 +32,22 @@ int partition(int arr[],int p, int lo,int hi)
 }
 
 
-void quicksort(int arr[], int lo, int hi,int k)
+void quickselect(int arr[], int lo, int hi,int k)
 
 {
-    if(lo>hi)
-    return;
+    // if(lo>hi)
+    // return;
 
 int pivot= arr[hi];
     cout<<"pivot->"<<pivot<<endl;
 
 int pi = partition(arr,pivot,lo,hi);
-if (k<pivot)
-quicksort(arr,lo,pi-1);
-else
-quicksort(arr,pi+1,hi);
- 
+if (k<pi)
+quickselect(arr,lo,pi-1,k);
+else if (k>pi)
+quickselect(arr,pi+1,hi,k);
+ else
+ cout<<arr[pi];
 }
 
 
@@ -65,7 +66,7 @@ int k;
 cin>>k;
 
 
-quicksort(a,0,n-1,k-1);
+quickselect(a,0,n-1,k-1);
 
 //    for(int i=0;i<n;i++)
     //   cout<<a[i]<<" ";
