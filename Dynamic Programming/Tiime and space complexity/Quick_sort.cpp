@@ -1,21 +1,6 @@
 #include<iostream>
 using namespace std;
 
-
-
-void quicksort(int arr[], int lo, int hi)
-
-{
-    if(lo>=hi)
-    return;
-
-int pivot= a[hi];
-int pi = partition(arr,pivot,lo,hi);
-quicksort(arr,lo,pi-1);
-quicksort(arr,pi+1,hi);
- 
-}
-
 int partition(int arr[],int p, int lo,int hi)
 
 {
@@ -23,7 +8,7 @@ int partition(int arr[],int p, int lo,int hi)
   int i =lo;
   int j=lo;
 
-  while (i<hi)
+  while (i<=hi)
   {
       if (arr[i]>p)
       {
@@ -41,10 +26,26 @@ int partition(int arr[],int p, int lo,int hi)
 
   }
 
- cout<<"pivot index -> "<<j-1;
+ cout<<"pivot index -> "<<j-1<<endl;
  return (j-1);
 
 }
+
+
+void quicksort(int arr[], int lo, int hi)
+
+{
+    if(lo>=hi)
+    return;
+
+int pivot= arr[hi];
+    cout<<"pivot->"<<pivot<<endl;
+int pi = partition(arr,pivot,lo,hi);
+quicksort(arr,lo,pi-1);
+quicksort(arr,pi+1,hi);
+ 
+}
+
 
 
 
