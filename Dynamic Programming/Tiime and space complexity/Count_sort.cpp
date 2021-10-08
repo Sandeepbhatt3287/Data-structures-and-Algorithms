@@ -1,4 +1,5 @@
 #include<iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
  void countsort(int arr[],int min ,int max,int n)
@@ -19,7 +20,7 @@ using namespace std;
 
    int ans[n];
 
-   for (int i =n=1 ; i>=0;i--)
+   for (int i =n-1 ; i>=0;i--)
    {
        int val =arr[i];
        int pos =farr[val -min];
@@ -44,9 +45,11 @@ int main()
     cin>>n;
     int a[n];
     for (int  i = 0; i < n; i++)
-    cin>>>a[i];
+    cin>>a[i];
     int max,min;
-
+    max=*max_element(a,a+n);
+    min=*min_element(a,a+n);
+    
     countsort(a,min,max,n);
 
 
