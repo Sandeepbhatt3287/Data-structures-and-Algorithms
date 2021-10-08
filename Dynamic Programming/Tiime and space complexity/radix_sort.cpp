@@ -49,7 +49,15 @@ void printArray(vector<int>& arr)
 
 void radixsort(vector<int>& a)
 {
-  int max = *max_element(arr.begin(), arr.end());
+  int max = *max_element(a.begin(), a.end());
+
+  int exp =1;
+  while (exp<=max)
+  {
+      countSort(arr,exp);
+      exp=exp*10;
+
+  }
 
      
 }
@@ -66,7 +74,7 @@ int main()
             arr.push_back(temp);
         }
 	
-	countSort(arr);
+	radixsort(arr);
 	printArray(arr);
 	return 0;
 }
