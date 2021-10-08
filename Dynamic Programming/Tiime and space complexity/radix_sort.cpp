@@ -15,7 +15,8 @@ void countSort(vector<int>& arr,int exp)
 	int max = *max_element(arr.begin(), arr.end());
 	// int min = *min_element(arr.begin(), arr.end());
 	// int range = max - min + 1;
-
+  cout<<"After sorting on "<<exp<<" place -> ";
+  
 	vector<int> count(10), output(arr.size());
 
 //   makeing frequency array
@@ -40,9 +41,10 @@ void countSort(vector<int>& arr,int exp)
 
 void printArray(vector<int>& arr)
 {
+    
 	for (int i = 0; i < arr.size(); i++)
-		cout << arr[i] <<endl;
-// 	cout << "\n";
+		cout << arr[i]<<" ";
+	cout << "\n";
 }
 
 
@@ -54,7 +56,7 @@ void radixsort(vector<int>& a)
   int exp =1;
   while (exp<=max)
   {
-      countSort(arr,exp);
+      countSort(a,exp);
       exp=exp*10;
 
   }
@@ -75,6 +77,7 @@ int main()
         }
 	
 	radixsort(arr);
+	printArray(arr);
 	printArray(arr);
 	return 0;
 }
