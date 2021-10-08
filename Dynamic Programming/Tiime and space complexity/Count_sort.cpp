@@ -4,7 +4,7 @@ using namespace std;
 
  void countsort(int arr[],int min ,int max,int n)
  {
-   int range =max -min +1;
+   int range =max - min +1;
 
    int farr[range];
 
@@ -13,10 +13,14 @@ using namespace std;
        int idx =arr[i]-min;
        farr[idx]++;
    }
+
+
+
    for (int i=1;i<range;i++)
    {
        farr[i]=farr[i]+farr[i-1];
    }
+
 
    int ans[n];
 
@@ -31,7 +35,7 @@ using namespace std;
 
    for (int i = 0; i <n; i++)
    {
-       cout<<arr[i]<<endl;
+       arr[i]=ans[i];
    }
    
    
@@ -52,5 +56,7 @@ int main()
     
     countsort(a,min,max,n);
 
+    for (int  i = 0; i < n; i++)
+    cout<<a[i]<<endl;
 
 }
