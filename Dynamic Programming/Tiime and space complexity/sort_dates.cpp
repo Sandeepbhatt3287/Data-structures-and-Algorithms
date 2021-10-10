@@ -6,11 +6,7 @@ using namespace std;
 
 
 
-
-
-
-
-void countSort(vector<int>& arr,int exp)
+void countSort(vector<int>& arr,int div,int mod,int range)
 {
 	int max = *max_element(arr.begin(), arr.end());
 	// int min = *min_element(arr.begin(), arr.end());
@@ -49,15 +45,27 @@ void printArray(vector<int>& arr)
 
 
 
-void radixsort(vector<int>& a)
-{
-  int max = *max_element(a.begin(), a.end());
+// void radixsort(vector<int>& a)
+// {
+//   int max = *max_element(a.begin(), a.end());
 
-  int exp =1;
-  while (exp<=max)
+//   int exp =1;
+//   while (exp<=max)
+//   {
+//       countSort(a,exp);
+//       exp=exp*10;
+
+//   }
+
+
+
+  void sortdates(vector<int> &arr)
   {
-      countSort(a,exp);
-      exp=exp*10;
+       countSort(arr,1000000,100,32);   //days 
+	   countSort(arr,10000,100,13);      //months
+	   countSort(arr,1,10000,2501);      //years
+
+
 
   }
 
