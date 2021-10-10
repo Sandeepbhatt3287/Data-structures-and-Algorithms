@@ -39,8 +39,8 @@ void printArray(vector<int>& arr)
 {
     
 	for (int i = 0; i < arr.size(); i++)
-		cout << arr[i]<<" ";
-	cout << "\n";
+		cout << arr[i]<<endl;
+// 	cout << "\n";
 }
 
 
@@ -70,7 +70,7 @@ void printArray(vector<int>& arr)
   }
 
      
-}
+
 
 int main()
 {   int n;
@@ -84,8 +84,8 @@ int main()
             arr.push_back(temp);
         }
 	
-	radixsort(arr);
-	printArray(arr);
+	sortdates(arr);
+	// printArray(arr);
 	printArray(arr);
 	return 0;
 }
