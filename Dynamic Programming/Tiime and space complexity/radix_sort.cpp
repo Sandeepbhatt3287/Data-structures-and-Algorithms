@@ -6,6 +6,14 @@ using namespace std;
 
 
 
+void printArray(vector<int>& arr)
+{
+    
+	for (int i = 0; i < arr.size(); i++)
+		cout << arr[i]<<" ";
+	cout << "\n";
+}
+
 
 
 
@@ -15,7 +23,7 @@ void countSort(vector<int>& arr,int exp)
 	int max = *max_element(arr.begin(), arr.end());
 	// int min = *min_element(arr.begin(), arr.end());
 	// int range = max - min + 1;
-  cout<<"After sorting on "<<exp<<" place -> ";
+  
   
 	vector<int> count(10), output(arr.size());
 
@@ -37,14 +45,9 @@ void countSort(vector<int>& arr,int exp)
 //  fiilling original array with helpof output array
 	for (int i = 0; i < arr.size(); i++)
 		arr[i] = output[i];
-}
-
-void printArray(vector<int>& arr)
-{
-    
-	for (int i = 0; i < arr.size(); i++)
-		cout << arr[i]<<" ";
-	cout << "\n";
+		
+	cout<<"After sorting on "<<exp<<" place -> ";	
+		printArray(arr);
 }
 
 
@@ -77,7 +80,7 @@ int main()
         }
 	
 	radixsort(arr);
-	printArray(arr);
+	
 	printArray(arr);
 	return 0;
 }
