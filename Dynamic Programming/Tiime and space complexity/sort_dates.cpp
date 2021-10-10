@@ -8,16 +8,16 @@ using namespace std;
 
 void countSort(vector<int>& arr,int div,int mod,int range)
 {
-	int max = *max_element(arr.begin(), arr.end());
+	// int max = *max_element(arr.begin(), arr.end());
 	// int min = *min_element(arr.begin(), arr.end());
 	// int range = max - min + 1;
-  cout<<"After sorting on "<<exp<<" place -> ";
+//   cout<<"After sorting on "<<exp<<" place -> ";
   
-	vector<int> count(10), output(arr.size());
+	vector<int> count(range), output(arr.size());
 
 //   makeing frequency array
 	for (int i = 0; i < arr.size(); i++)
-		count[arr[i]/exp%10]++;
+		count[arr[i]/div%mod]++;
 
 //  convert it into prefix sum array
 	for (int i = 1; i < count.size(); i++)
@@ -25,8 +25,8 @@ void countSort(vector<int>& arr,int div,int mod,int range)
 
 // stable sorting 
 	for (int i = arr.size() - 1; i >= 0; i--) {
-		output[count[arr[i]/exp%10] - 1] = arr[i];
-		count[arr[i]/exp%10]--;
+		output[count[arr[i]/div%mod] - 1] = arr[i];
+		count[arr[i]/div%mod]--;
 	}
 
 
