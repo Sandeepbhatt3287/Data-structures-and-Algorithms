@@ -12,7 +12,7 @@ return;
 
 if (sr==maze.size()-1 && sc==maze[0].size()-1)
 {
-    cout<<asf;
+    cout<<asf<<endl;
     return;
 }
 
