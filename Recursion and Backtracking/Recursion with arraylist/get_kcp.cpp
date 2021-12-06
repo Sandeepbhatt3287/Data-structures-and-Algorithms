@@ -14,7 +14,7 @@ int main() {
   vector<string> ans = getKPC(s);
   int cnt = 0;
 
-  cout << '[';
+  cout << '['; 
   for (string str : ans) {
     if (cnt != ans.size() - 1)
       cout << str << ", ";
