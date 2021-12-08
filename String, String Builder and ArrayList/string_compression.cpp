@@ -3,7 +3,7 @@
 using namespace std;
 
 
-
+// duplicates function
 string duplicates(string str)
 { string s1=str;
   int  index = 0;
