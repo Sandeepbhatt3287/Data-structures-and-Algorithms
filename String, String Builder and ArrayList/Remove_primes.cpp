@@ -1,33 +1,32 @@
 #include<bits/stdc++.h>
-// #include<string.h>
 using namespace std;
 
 
-int main ()
+bool check_prime(int temp)
 {
-    int n;
-    cin>>n;
-    int a[n];
+	for(int i=2;i*i<=temp;++i)
+	{
+		if(temp%i==0)
+		{
+			return false;
+		}
+	}
+	return true;
+}
 
-    for ( int i =0;i<n;i++)
-    {
-        cin>>a[i];
-    }
+int main()
+{
 
-cout<<"[";
-     for (int j =0;j<n;j++)
-     { int c=0;
-         for (int div=2;div*div<=a[j];div++)
-         {
-             if (a[j]%div==0)
-             {
-                 c=1; break;
-             }
-         }
-     
-      if (c==1)
-      cout<<a[j]<<",";
-     }
-
- cout<<"]";
+	int n;
+	cin>>n;
+	int a[n];
+	int temp;
+	for(int i=0;i<n;++i)
+	{
+		cin>>temp;
+		if(!check_prime(temp))
+		{
+			cout<<temp<<" ";
+		}
+	}
 }
