@@ -1,26 +1,37 @@
-#include<iostream>
-#include<string>
-#include<vector>
+
+#include<bits/stdc++.h>
 using namespace std;
 
-vector<string> getKPC(string s) {
-  //Write your code here
+
+string codes[] = {".;", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tu", "vwx", "yz"};
+
+void printKPC(string ques, string asf){
+    // write your code here
+
+    if(ques.size()==0)
+    {
+    	cout<<asf<<"\n";
+    	return;
+    }
+
+	int code_index=ques.at(0)-'0';
+    string rcode=ques.substr(1);
+    string ans=codes[code_index];
+    // cout<<ans<<"\n";
+    for(int i=0;i<ans.size();i++)
+    {
+    	char ch=ans.at(i);
+    	printKPC(rcode,asf + ch);
+    }
 }
 
 
-int main() {
-  string s;
-  cin >> s;
-  vector<string> ans = getKPC(s);
-  int cnt = 0;
 
-  cout << '['; 
-  for (string str : ans) {
-    if (cnt != ans.size() - 1)
-      cout << str << ", ";
-    else
-      cout << str;
-    cnt++;
-  }
-  cout << ']';
+int main(){
+
+
+    string str;
+    cin >> str;
+    printKPC(str, "");
+
 }
