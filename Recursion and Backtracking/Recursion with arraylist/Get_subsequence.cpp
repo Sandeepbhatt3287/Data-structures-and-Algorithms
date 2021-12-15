@@ -14,7 +14,7 @@ vector<string> gss(string s){
     char ch=s.at(0);
     string rres=s.substr(1);
     vector<string> rans=gss(rres);
-    cout<<rans<<"\n";
+    // cout<<rans<<"\n";
     
     vector<string> fans;
     for(auto str: rans)
