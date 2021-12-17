@@ -1,31 +1,35 @@
-#include<iostream>
-#include<vector>
-
+#include <iostream>
 using namespace std;
 
-// sr - source row
-// sc - source column
-// dr - destination row
-// dc - destination column
-vector <string> getMazePaths(int sr, int sc, int dr, int dc) {
+void printMazePaths(int sr, int sc, int dr, int dc, string psf){
+    // write your code here
 
-}
 
-void display(vector<string>& arr){
-    cout << "[";
-    for(int i = 0;i < arr.size();i++){
-        cout << arr[i];
-        if(i < arr.size() -1) cout << ", ";
-    }
+		if(sr==dr and sc==dc)
+		{
+			cout<<psf<<"\n";
+			return ;
+		}
+	    
+
+	    if(sc<dc)
+	    {
+	    	printMazePaths(sr,sc+1,dr,dc,psf + 'h');
+	    }
+
+	    if(sr<dr)
+	    {
+	    	printMazePaths(sr+1,sc,dr,dc,psf + 'v');
+	    }
     
-    cout << "]"<<endl;
 }
 
+int main(){
 
-int main() {
-    int n,m; cin >> n >> m;
-    vector<string> ans = getMazePaths(0,0,n-1,m-1);
-    display(ans);
-
+    int n;
+    int m;
+    cin >> n >> m;
+    printMazePaths(0, 0, n - 1, m - 1, "");
+    
     return 0;
 }
