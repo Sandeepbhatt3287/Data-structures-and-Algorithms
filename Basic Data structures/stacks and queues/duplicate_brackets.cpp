@@ -17,7 +17,6 @@ string duplicate( string str)
         {
             if(st.top()=='(')
             {
-                // cout<<"true";
                 return "true";
              }
             else
