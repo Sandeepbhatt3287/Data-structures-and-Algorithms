@@ -17,7 +17,7 @@ string duplicate( string str)
         {
             if(st.top()=='(')
             {
-
+ 
                 return "true";
              }
             else
