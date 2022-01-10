@@ -9,6 +9,7 @@ void display(vector<int>a) {
 vector<int> solve(vector<int>arr)
 {
   //write your code here
+  
 }
 int main(int argc, char** argv)
 {
