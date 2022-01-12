@@ -38,58 +38,62 @@ int main() {
     
     for (int i=0;i<str.size();i++)
     {
-        char ch = str[i];
+        // char ch = str[i];
         
-        if(ch=='(')
+        if(str[i]=='(')
         {
-         opt.push(ch);   
+         opt.push(str[i]);   
         }
-        else if(isdigit(ch))
+        else if(isdigit(str[i]))
         {
-            opd.push(ch-'0');     // char into int
+            opd.push(str[i]-'0');     // char into int
         }
-        else if(ch==')')
+        else if(str[i]==')')
         {
             while (opt.top()!= '(')
             {
-                char optor = opt.pop();
-                int v2 = opd.pop();
-                int v1 = opd.pop();
+                char optor =opt.top();
+                opt.pop();
+                int v2 = opd.top();
+                opd.pop();
+                int v1 = opd.top();
+                opd.pop();
                 int  opv = operation(v1,v2,optor);
                 
                 opd.push(opv);
             }
             opt.pop();
         }
-        else if (ch =='+' || ch=='-' || ch=='*'|| ch=='/')
+        else if (str[i]=='+' || str[i]=='-' || str[i]=='*'|| str[i]=='/')
         {
-            while (opt.size()>0 && opt.top()!='(' && precedence(ch)<= precedence(opt.top())
+    while (opt.size()>0 && opt.top()!='(' && precedence(str[i])<= precedence(opt.top()))
                    {
-                char optor = opt.pop();
-                int v2 = opd.pop();
-                int v1 = opd.pop();
+                char optor =opt.top();
+                opt.pop();
+                int v2 = opd.top();
+                opd.pop();
+                int v1 = opd.top();
+                opd.pop();
                 int opv = operation(v1,v2,optor);
                 
                 opd.push(opv);
 
                    }
-            opt.push(ch);
+            opt.push(str[i]);
         }
-                   
-                   
-     while (opt.size()!= 0)
+         while (opt.size()!= 0)
             {
-                char optor = opt.pop();
-                int v2 = opd.pop();
-                int v1 = opd.pop();
+                char optor = opt.top();
+                opt.pop();
+                int v2 = opd.top();
+                opd.pop();
+                int v1 = opd.top();
+                opd.pop();
                 int  opv = operation(v1,v2,optor);
-                
                 opd.push(opv);
             }
-          
-                   cout<<opd.top();
-    }
-  
+       }
+   cout<<(opd.top());
 
   return 0;
 }
