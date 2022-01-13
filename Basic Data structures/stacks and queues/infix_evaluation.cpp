@@ -2,17 +2,6 @@
 #include <ctype.h>
 using namespace std;
 
-int precedence(char optor)
-  {
-    if(optor=='+')
-        return 1;
-    else if (optor=='-')
-        return 1;
-    else if(optor=='*')
-        return 2;
-    else
-        return 2;
-  }  
 
 int operation(int v1,int v2,char optor)
   {
@@ -28,6 +17,19 @@ int operation(int v1,int v2,char optor)
   }
 
 
+int precedence(char optor)
+  {
+    if(optor=='+')
+        return 1;
+    else if (optor=='-')
+        return 1;
+    else if(optor=='*')
+        return 2;
+    else
+        return 2;
+  }  
+
+
 int main() {
   string str;
   getline(cin, str);
@@ -38,17 +40,17 @@ int main() {
     
     for (int i=0;i<str.size();i++)
     {
-        // char ch = str[i];
+        char ch = str[i];
         
-        if(str[i]=='(')
+        if(ch=='(')
         {
-         opt.push(str[i]);   
+         opt.push(ch);   
         }
-        else if(isdigit(str[i]))
+        else if(isdigit(ch))
         {
-            opd.push(str[i]-'0');     // char into int
+            opd.push(ch-'0');     // char into int
         }
-        else if(str[i]==')')
+        else if(ch==')')
         {
             while (opt.top()!= '(')
             {
@@ -64,9 +66,9 @@ int main() {
             }
             opt.pop();
         }
-        else if (str[i]=='+' || str[i]=='-' || str[i]=='*'|| str[i]=='/')
+        else if (ch=='+' || ch=='-' || ch=='*'|| ch=='/')
         {
-    while (opt.size()>0 && opt.top()!='(' && precedence(str[i])<= precedence(opt.top()))
+      while (opt.size()>0 && opt.top()!='(' && precedence(ch)<= precedence(opt.top()))
                    {
                 char optor =opt.top();
                 opt.pop();
@@ -79,9 +81,11 @@ int main() {
                 opd.push(opv);
 
                    }
-            opt.push(str[i]);
+            opt.push(ch);
         }
-         while (opt.size()!= 0)
+        
+       }
+     while (opt.size()!= 0)
             {
                 char optor = opt.top();
                 opt.pop();
@@ -92,7 +96,6 @@ int main() {
                 int  opv = operation(v1,v2,optor);
                 opd.push(opv);
             }
-       }
    cout<<(opd.top());
 
   return 0;
