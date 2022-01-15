@@ -10,9 +10,10 @@ int operation(int v1,int v2,char optor)
         return v1-v2;
     else if(optor=='*')
         return v1*v2;
+    else if(optor=='/')
+    return v1/v2;
     else
-    { return v1/v2;
-    }
+        return 0;
   }
 
 
@@ -49,27 +50,34 @@ int main() {
           string iv1 = is.top();
           is.pop();
           
-          string ival =  iv1+ch+iv2;
+          string ival = "(" +iv1+ch+iv2 +")";
           is.push(ival);
           
           
         //   prefix
           string pv2 = ps.top();
           ps.pop();
+          
           string pv1 = ps.top();
-          ps.top();
-          string pval = ch+ pv1 + pv2;
+          ps.pop();
+          
+          string pval = ch+pv1+pv2;
+          
           ps.push(pval);
       }
       else 
-      {
-          vs.push((ch));
-          is.push((ch));
-          ps.push((ch));
+      {    
+          string res;
+          res+=ch;
+          
+          vs.push(ch-'0');
+          is.push(res);
+          ps.push(res);
       }
   }
-  cout<<vs.top();
-  cout<<is.top();
+  cout<<vs.top()<<endl;
+    
+  cout<<is.top()<<endl;
   cout<<ps.top();
   return 0;
 }
