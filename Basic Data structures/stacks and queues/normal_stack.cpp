@@ -24,28 +24,64 @@ public:
 public:
   int size() {
     // write your code here
+  return tos+1;
+      
   }
 
 public:
   void push(int data) {
     // write your code here
+    
+    if(tos==MaxCapacity-1)
+    {
+        cout<<"Stack overflow"<<endl;
+        
+    }else
+    {
+        tos++;
+        arr[tos]=data;
+    }
   }
 
 public:
   int top()
   {
     // write your code here
+  
+      if(tos==-1)
+      {
+          cout<<"Stack underflow"<<endl;
+          return -1;
+      }else{
+          return arr[tos];
+      }
+      // return 0;
   }
 
 public:
   int pop()
   {
     // write your code here
+    if (tos==-1)
+    {
+        cout<<"Stack underflow"<<endl;
+        return -1;
+    }else{
+        int val = arr[tos];
+        tos--;
+        return val;
+    }
   }
 
 public:
   void display() {
     // write your code here
+  
+      for (int i= tos; i>=0;i--)
+      {
+          cout<<arr[i]<<" ";
+      }
+      cout<<endl;
   }
 };
 
