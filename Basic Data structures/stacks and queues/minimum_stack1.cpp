@@ -15,26 +15,65 @@ class MinStack {
 public:
   int size() {
     // write your code here
+    return allData.size();
   }
 
 public:
   void push(int val) {
     // write your code here
+    allData.push(val);
+    
+    if(minData.size()==0 || val<=minData.top())
+    {
+        minData.push(val);
+    }
+    
   }
 
 public:
   int pop() {
     // write your code here
+    if(size()==0)
+    {
+        cout<<"Stack underflow";
+        return -1;
+    }else
+    {
+        int val =allData.top();
+        allData.pop();
+        if(val==minData.top())
+        {
+            minData.pop();
+        }
+        return val;
+    }
   }
 
 public:
   int top() {
     // write your code here
+   if(size()==0)
+    {
+        cout<<"Stack underflow";
+        return -1;
+    }else
+    {
+        return allData.top();
+    }
   }
 
 public:
   int min() {
     // write your code here
+    
+    if(size()==0)
+    {
+        cout<<"Stack underflow";
+        return -1;
+    }else
+    {
+       return minData.top();
+    }
   }
 
 };
