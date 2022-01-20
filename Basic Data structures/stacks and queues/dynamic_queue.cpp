@@ -2,14 +2,14 @@
 #include <exception>
 using namespace std;
 
-class DynamicQueue {
+class CustomQueue {
 public:
   int* arr;
   int sizeQ;
   int front;
   int arrSize;
 
-  DynamicQueue(int cap) {
+  CustomQueue(int cap) {
     sizeQ = 0;
     front = 0;
     arr = new int[cap];
@@ -18,29 +18,80 @@ public:
 
   int size() {
     // write your code here
+    return arrSize;
   }
 
   void add(int data) {
     // write your code here
+    if(sizeQ==arrSize-1)
+    {
+      // cout<<"Queue overflow"<<endl;
+         int ndata[2*arrSize];
+         // ndata=new int[2*arrSize];
+        for (int i=0;i<arrSize;i++)
+        {
+            int idx = (front +i)%arrSize;
+            ndata[i]=arr[idx];
+        }
+        arr =ndata;
+        front =0;
+        
+        int rear = (front + sizeQ +1)% arrSize;
+        arr[rear]=data;
+        arrSize++;
+    }else
+    {
+        int rear = (front + sizeQ +1)% arrSize;
+        arr[rear]=data;
+        arrSize++;
+    }
+    
   }
 
   int peek() {
     // write your code here
+   if(arrSize==0)
+    {  
+        cout<<"Queue overflow"<<endl;
+        return -1;
+    }else
+    { 
+        return arr[front];
+    }
   }
 
   int remove() {
     // write your code here
+    
+     if(arrSize==0)
+    {  
+        cout<<"Queue underflow"<<endl;
+        return -1;
+    }else
+    {   
+        int val = arr[front];
+        front=(front+1)%arrSize;
+        arrSize--;
+        return val;
+    }
   }
 
   void display() {
     // write your code here
+    for(int i=0;i<arrSize;i++)
+	{  
+        int idx=(front+i)%arrSize-1;
+		cout<<arr[idx]<<" ";
+	}
+	cout<<endl;
+    
   }
 };
 
 int main() {
   int n;
   cin >> n;
-  DynamicQueue q(n);
+  CustomQueue q(n);
   string str;
   cin >> str;
 
@@ -72,7 +123,4 @@ int main() {
   }
   return 0;
 }
-
-
-
 
