@@ -18,22 +18,60 @@ public:
 
   int size() {
     // write your code here
+    return arrSize;
   }
 
   void add(int data) {
     // write your code here
+    if(sizeQ==arrSize-1)
+    {
+      cout<<"Queue overflow"<<endl;
+    }else
+    {
+        int rear = (front + sizeQ +1)% arrSize;
+        arr[rear]=data;
+        arrSize++;
+    }
+    
   }
 
   int peek() {
     // write your code here
+   if(arrSize==0)
+    {  
+        cout<<"Queue overflow"<<endl;
+        return -1;
+    }else
+    { 
+        return arr[front];
+    }
   }
 
   int remove() {
     // write your code here
+    
+     if(arrSize==0)
+    {  
+        cout<<"Queue underflow"<<endl;
+        return -1;
+    }else
+    {   
+        int val = arr[front];
+        front=(front+1)%arrSize;
+        arrSize--;
+        return val;
+    }
   }
 
   void display() {
     // write your code here
+    for(int i=0;i<arrSize;i++)
+	{  
+        int idx=(front+i)%arrSize-1;
+		cout<<arr[idx]<<" ";
+	}
+	cout<<endl;
+    
   }
 };
 
