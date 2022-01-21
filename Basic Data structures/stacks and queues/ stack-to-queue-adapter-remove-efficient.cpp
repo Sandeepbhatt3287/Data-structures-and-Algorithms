@@ -9,18 +9,52 @@ public:
 
   int size() {
     // write your code here
+    return mainS.size();
   }
 
   void add(int val) {
 // write your code here
-  }
+while(mainS.size()>0)
+   {  
+     int a= mainS.top();
+       mainS.pop();
+       
+     helperS.push(a);
+   }
+   mainS.push(val);
+   
+   while(helperS.size()>0)
+   {  
+       int b= helperS.top();
+       helperS.pop();
+       mainS.push(b);
+   }
+}  
 
   int Remove() {
     // write your code here
+    if(size()==0)
+    { cout<<"Queue underflow"<<endl;
+        return -1;
+    }else{
+        
+        int c= mainS.top();
+           mainS.pop();
+        return c;
+    }
   }
 
   int peek() {
     // write your code here
+     if(size()==0)
+    { cout<<"Queue underflow"<<endl;
+        return -1;
+    }else{
+        
+        int c= mainS.top();
+        //   mainS.pop();
+        return c;
+    }
   }
 };
 
