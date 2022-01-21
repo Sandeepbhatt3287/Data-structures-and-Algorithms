@@ -15,7 +15,7 @@ public:
 
   void push(int data) {
     // write your code here
-    mainQ.add(data);
+    mainQ.push(data);
   }
 
   int top() {
@@ -28,14 +28,20 @@ public:
     {
          while(mainQ.size()>1)
         {
-            helperQ.add(mainQ.remove());
+          int a=mainQ.front();
+             mainQ.pop();
+          
+            helperQ.push(a);
         }
-        int val = mainQ.remove();
-        helperQ.add(val);
+        int val = mainQ.front();
+        mainQ.pop();
+        helperQ.push(val);
         
         while (helperQ.size()>0)
         {
-            mainQ.add(helperQ.remove());
+            int b= helperQ.front();
+          helperQ.pop();
+            mainQ.push(b);
         }
         return val;
     }
@@ -50,13 +56,19 @@ public:
     }else 
     {
         while(mainQ.size()>1)
-        {
-            helperQ.add(mainQ.remove());
+        {    
+          int a=mainQ.front();
+          mainQ.pop();
+            helperQ.push(a);
         }
-        int val = mainQ.remove();
+        int val = mainQ.front();
+        mainQ.pop();
         while (helperQ.size()>0)
-        {
-            mainQ.add(helperQ.remove());
+        {   
+          int b= helperQ.front();
+          helperQ.pop();
+            mainQ.push(b);
+            // helperQ.pop();
         }
         return val;
     }
