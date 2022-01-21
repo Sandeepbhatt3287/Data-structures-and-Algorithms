@@ -10,18 +10,54 @@ public:
 
   int size() {
     // write your code here
+    return mainQ.size();
   }
 
-  void push(int data) {
+  void push(int val) {
     // write your code here
+    
+    while(mainQ.size()>0)
+    {
+        helperQ.push(mainQ.front());
+        mainQ.pop();
+    }
+    mainQ.push(val);
+    
+    while(helperQ.size()>0)
+    {
+        mainQ.push(helperQ.front());
+        helperQ.pop();
+    }
+    
   }
 
   int top() {
     // write your code here
+     if(size()==0)
+    {
+        cout<<"Stack underflow";
+        return -1;
+    }
+    else
+    {    
+        return mainQ.front();
+        // mainQ.pop();
+    }
   }
 
   int pop() {
     // write your code here
+    if(size()==0)
+    {
+        cout<<"Stack underflow";
+        return -1;
+    }
+    else
+    {    int a=mainQ.front();
+        mainQ.pop();
+        return a;
+        // mainQ.pop();
+    }
   }
 };
 
