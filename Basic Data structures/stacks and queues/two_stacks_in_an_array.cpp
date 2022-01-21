@@ -12,40 +12,110 @@ public:
 
   TwoStack(int cap) {
     // write your code here
+    data[cap];
+    tos1=-1;
+    tos2= data.size();
   }
 
   int size1() {
     // write your code here
+    return tos1+1;
   }
 
   int size2() {
     // write your code here
+      int n=data.size();
+    return n-tos2;
 
   }
 
   void push1(int val) {
     // write your code here
+    if(tos2==tos1-1)
+    {
+        cout<<"Stack overflow"<<endl;
+    }else
+    {
+        tos1++;
+        data[tos1]=val;
+    }
   }
 
   void push2(int val) {
     // write your code here
+    
+        if(tos2==tos1-1)
+    {
+        cout<<"Stack overflow"<<endl;
+    }else
+    {
+        tos2++;
+        data[tos2]=val;
+    }
 
   }
 
   int pop1() {
 // write your code here
+ if(size1()==0)
+    {
+      cout<<"Stack underflow";
+      return -1;
+        
+    }else
+    { 
+        int val =data[tos1];
+        tos1--;
+        return val;
+        
+    }
   }
 
   int pop2() {
     // write your code here
+     if(size2()==0)
+    {
+      cout<<"Stack underflow";
+      return -1;
+        
+    }else
+    { 
+        int val =data[tos2];
+        tos2++;
+        
+        return val;
+        
+    }
   }
 
   int top1() {
     // write your code here
+    if(size1()==0)
+    {
+      cout<<"Stack underflow";
+      return -1;
+        
+    }else
+    { 
+        int val =data[tos1];
+        return val;
+        
+    }
   }
 
   int top2() {
     // write your code here
+     if(size2()==0)
+    {
+      cout<<"Stack underflow";
+      return -1;
+        
+    }else
+    { 
+        int val =data[tos2];
+        return val;
+        
+    }
   }
 };
 
