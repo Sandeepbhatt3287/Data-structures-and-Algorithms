@@ -64,16 +64,53 @@ public:
     return cnt;
   }
 
-  void getFirst() {
+  int getFirst() {
     //write your code here
+    if(size_==0)
+    {
+        cout<<"List is empty"<<endl;
+        return -1;
+    }else
+    {
+        return head->val;
+    }
+  }
+  
+  int getLast() {
+    //write your code here
+    if(size_==0)
+    {
+        cout<<"List is empty"<<endl;
+        return -1;
+    }else
+    {
+        return tail->val;
+    }
   }
 
-  void getLast() {
+  int getAt(int p) {
     //write your code here
-  }
-
-  node* getAt(int p) {
-    //write your code here
+    
+    if(size_==0)
+    {
+        cout<<"List is empty"<<endl;
+        return -1;
+    }
+    else if(p<0 || p>=size_)
+    {
+        cout<<"Invalid arguments"<<endl;
+        return -1;
+    }
+    else
+    {  
+        node* temp=head;
+        
+        for(int i=0;i<p;i++)
+        {
+            temp=temp->next;
+        }
+        return temp->val;
+    }
   }
 };
 int main() {
