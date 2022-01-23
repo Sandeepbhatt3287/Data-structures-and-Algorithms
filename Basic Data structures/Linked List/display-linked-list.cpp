@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include<string>
 using namespace std;
 
 class node
@@ -24,31 +24,34 @@ public:
 
   void addLast(int n)
   {
-    // Write your code here
-    
- node *temp = new node();
-     
-     temp->data=n;
-     temp->next= NULL;
-     
-  if(size==0)
-  {
-     head=tail=temp;
-    //  size++;
-     
-  }else{
-     
-     tail->next=temp;
-     tail=temp;
-    //  size++;
+    node* tmp = new node;
+    tmp->data = n;
+    tmp->next = NULL;
+
+    if (head == NULL)
+    {
+      head = tmp;
+      tail = tmp;
+    }
+    else
+    {
+      tail->next = tmp;
+      tail = tail->next;
+    }
+    size++;
+
 
   }
- size++;
-  }
   void display() {
-    for (node* tmp = head; tmp != NULL; tmp = tmp->next) {
-      cout << tmp->data << " ";
+    // write your code here
+    node *temp=head;
+    
+    while(temp!=NULL)
+    {
+        cout<<temp->data<<" ";
+        temp = temp->next;
     }
+    cout<<endl;
 
   }
 
@@ -76,16 +79,23 @@ int main() {
     if (str[0] == 'q') {
       break;
     }
-    if (str[0] == 'a') {
+    else if (str[0] == 'a') {
       string ss = str.substr(8, 2);
       int n = stoi(ss);
       l.addLast( n);
 
     }
+    else if (str[0] == 's') {
+      cout << l.size << endl;
+    }
+    else if (str[0] == 'd') {
+      l.display();
+    }
+
 
   }
 
-  l.testList();
+
   return 0;
 
 }
