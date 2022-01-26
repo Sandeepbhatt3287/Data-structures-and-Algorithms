@@ -1,4 +1,4 @@
-// Insert at the beginning of singly linked list
+// GFG linked list
 
 
 
@@ -73,7 +73,7 @@ int main(){
     
      print(head);
   
-    cout<<"\nLinked list after delete "<<endl;
+    cout<<"\nLinked list after delete  head"<<endl;
     
     head=deletehead(head,10);
     
