@@ -34,8 +34,7 @@ node *insertend( node *head,int x)
      return head;
         
 }
-  
-//   insertion on given position
+
 
 node *given_position(node *head,int pos,int data)
 {   
@@ -89,6 +88,9 @@ int main(){
     cout<<"\nLinked list after insert at given point "<<endl;
     
     head=given_position(head,2,222);
+    
+    
+    head=given_position(head,9,222);   //this will not print 
     
     print(head);
     return 0;
