@@ -23,16 +23,29 @@ node *insert_end(node *head,int data)
        {  
            temp=temp->next;
            return temp;
-       }
+       } else
+
+    //    version 2
+    {
+        temp->next=head->next;
+        head->next=temp;
+        
+        int t=temp->data;
+        temp->data=head->data;
+        head->data=t;
+        
+        return temp;
+    }
     
-    node *cur=head;
+    // version 1
+    // node *cur=head;
     
-    while(cur->next!=head)
-        cur=cur->next;
+    // while(cur->next!=head)
+    //     cur=cur->next;
     
-    cur->next=temp;
-    temp->next=head;
-    return head;
+    // cur->next=temp;
+    // temp->next=head;
+    // return head;
     
   }
     
