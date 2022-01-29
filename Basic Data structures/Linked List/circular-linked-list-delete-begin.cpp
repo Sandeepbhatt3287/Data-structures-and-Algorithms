@@ -32,15 +32,27 @@ node *Delete_begin(node *head)
     }
     
 
-    // version 1
-    node *cur=head;
+    // version 2
+
+     head->data=head->next->data;
     
-    while(cur->next!=head)
-        cur=cur->next;
+    node *temp=head->next;
     
-    cur->next=head->next;
-    delete head;
-    return cur->next;
+    head->next=head->next->next;
+    
+    delete temp;
+    
+    return head;
+
+    // // version 1
+    // node *cur=head;
+    
+    // while(cur->next!=head)
+    //     cur=cur->next;
+    
+    // cur->next=head->next;
+    // delete head;
+    // return cur->next;
   }
     
   
