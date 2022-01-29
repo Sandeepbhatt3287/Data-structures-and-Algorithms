@@ -20,18 +20,33 @@ node *insert_begin(node *head,int data)
      node *temp=new node(data);
     
        if(head==NULL)
-           temp=temp->next;
-    else{
-        node *cur=head;
+          {
+             temp=temp->next;
+             return temp;
+          }
+    else{  
+      // method 1st
+
+        // node *cur=head;
         
-        while(cur->next!=head)
-            cur=cur->next;
+        // while(cur->next!=head)
+        //     cur=cur->next;
         
-        cur->next=temp;
-        temp->next=head;
-    }
+        // cur->next=temp;
+        // temp->next=head;
+
+// method 2nd
+   temp->next=head->next;
+   head->next=temp;
+
+   int t= head->data;
+   head->data=temp->data;
+   temp->data=t;
+
+return head;
+}
     
-    return temp;
+    // return temp;
   }
     
   
