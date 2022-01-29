@@ -31,6 +31,8 @@ node *Delete_begin(node *head)
         return NULL;
     }
     
+
+    // version 1
     node *cur=head;
     
     while(cur->next!=head)
