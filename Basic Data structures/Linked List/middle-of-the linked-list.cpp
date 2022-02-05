@@ -35,31 +35,23 @@ node *insertend( node *head,int x)
 
 
 
-// (naive solution)
+// (efficient solution)
 
 
 void middle(node *head)
 {    
-    int count=0;
-
-    if(head==NULL)
+      
+  if(head==NULL)
+      return;
+    
+    node *slow=head,*fast=head;
+    
+    while (fast!=NULL && fast->next!=NULL)
     {
-       return;
+        slow=slow->next;
+        fast=fast->next->next;
     }
-    
-    
-    node *cur;
-
-for (cur=head;cur!=NULL;cur=cur->next)
- count++;
-
- cur=head;
-
- for(int i=0;i<count/2;i++)
-  cur=cur->next;
-
-  cout<<cur->val;
-    
+    cout<<(slow->val);
 
 }
 
