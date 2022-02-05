@@ -35,21 +35,41 @@ node *insertend( node *head,int x)
 
 // naive solution
 
+// node *revlist(node *head)
+// {    
+//     vector<int> arr;
+//     for(node *cur=head;cur!=NULL;cur=cur->next)
+//         arr.push_back(cur->val);
+    
+//     for(node *cur=head;cur!=NULL;cur=cur->next)
+//     {
+//         cur->val=arr.back();
+//         arr.pop_back();
+//     }
+    
+//     return head;
+    
+// }
+
+
+
+// efficient method
+
 node *revlist(node *head)
-{    
-    vector<int> arr;
-    for(node *cur=head;cur!=NULL;cur=cur->next)
-        arr.push_back(cur->val);
-    
-    for(node *cur=head;cur!=NULL;cur=cur->next)
-    {
-        cur->val=arr.back();
-        arr.pop_back();
-    }
-    
-    return head;
-    
+{    node *cur=head;
+     node *prev=NULL;
+ 
+ while (cur!=NULL)
+ {
+     node *next=cur->next;
+     cur->next=prev;
+     
+    prev=cur;
+     cur=next;
+ }
+    return prev;
 }
+
 
 void print( node *head)
 {
