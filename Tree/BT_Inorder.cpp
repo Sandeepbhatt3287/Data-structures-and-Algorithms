@@ -17,6 +17,26 @@ Node* newNode(int data)
 void Inorder(struct Node* node){
     if(node != NULL){
         Inorder(node->left);
-        cou
+        cout<<node->data<<endl;
+		Inorder(node->right);
     }
+}
+
+
+int main()
+{
+	struct Node* root = newNode(1);
+	root->left = newNode(2);
+	root->right = newNode(3);
+	root->left->left = newNode(4);
+	root->left->right = newNode(5);
+
+
+
+	cout << "\nInorder traversal of binary tree is \n";
+	Inorder(root);
+
+	
+
+	return 0;
 }
